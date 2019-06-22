@@ -4,3 +4,13 @@ export const changeCurPage = (page) => {
         payload: page,
     }
 }
+
+export const authenticate = (username, password) => {
+    return {
+        type: "AUTHENTICATE",
+        payload: {
+            username: username,
+            password: password,
+        }
+    }
+}

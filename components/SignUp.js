@@ -1,10 +1,27 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, TextInput} from 'react-native';
 export default class SignUp extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        username: "",
+        password: "",
+        email: "",
+      }
+    }
     render() {
       return (
-          <View style={styles.container}>
+        <View style={styles.container}>
           <Text style={styles.welcome}>SignUp</Text>
+          <View style={{ backgroundColor: '#FDFEFE' }}>
+            <TextInput style = {styles.form} placeholder="Username" onChangeText={(username) => this.setState({username})}/>
+          </View>
+          <View style={{ backgroundColor: '#FDFEFE' }}>
+            <TextInput style = {styles.form} placeholder="Password" onChangeText={(password) => this.setState({password})}/>
+          </View>
+          <View style={{ backgroundColor: '#FDFEFE' }}>
+            <TextInput  style = {styles.form} placeHolder = 'email'onChangeText={(email) => this.setState({email})}/>
+          </View>
         </View>
       );
     }
@@ -29,5 +46,8 @@ export default class SignUp extends Component {
         color: '#99aab5',
         marginBottom: 5,
       },
+      form:{
+        height: 40,
+      }
     });
     

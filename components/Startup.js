@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import { connect } from 'react-redux';
+import {changeCurPage} from '../actions/actions.js';
+import {bindActionCreators} from 'redux';
 
-export default class Startup extends Component {
+class Startup extends Component {
   render() {
     return (
         <View style={styles.container}>
         <Text style={styles.welcome}>Steel Scout</Text>
-        <Button style={styles.signUpButton} title = "Sign Up" onPress = {() => {}}/>
-        <Button style={styles.logInButton} title = "Log In" onPress = {() => {}}/>
+        <Button style={styles.signUpButton} title = "Sign Up" onPress = {() => {this.props.changeCurPage("SignUp")}}/>
+        <Button style={styles.logInButton} title = "Log In" onPress = {() => {this.props.changeCurPage("Login")}}/>
       </View>
     );
   }
@@ -40,3 +43,16 @@ const styles = StyleSheet.create({
     }
   });
   
+  function mapStateToProps(state){
+    return{
+        // username: state.auth.username,
+        // password: state.auth.password,
+        curPage: state.curPage,
+    }
+  }
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({changeCurPage: changeCurPage}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Startup);
