@@ -25,7 +25,7 @@ class Login extends Component {
             <TextInput style = {styles.form} placeholder="Password" onChangeText={(password) => this.setState({password})}/>
           </View>
           </View>
-          <Button title = "Enter" onPress = {() => {this.props.authenticate(this.state.username, this.state.password)}}/>
+          <Button title = "Enter" onPress = {() => {this.props.authenticate(this.state.username, this.state.password); this.props.changeCurPage("ScoutDashboard");} }/>
           <Button title = "Forgot Credentials" onPress = {() => {this.props.changeCurPage("ForgotPass")}}/>
           <Button title = "Sign Up" onPress = {() => {this.props.changeCurPage("SignUp")}}/>
         </KeyboardAvoidingView>
