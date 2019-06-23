@@ -5,7 +5,6 @@ import {changeCurPage, authenticate} from '../actions/actions.js';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ThemeProvider,Button, Divider, Input } from 'react-native-elements';
-import Login from './Login.js';
 
 
 

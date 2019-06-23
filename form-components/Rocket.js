@@ -3,12 +3,14 @@ import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
+import Triangle from './shapes/Triangle';
 
 class Rocket extends Component {
   render() {
     return (
         <View style={styles.container}>
         <Text style={styles.welcome}>Rocket</Text>
+        <Triangle/>
       </View>
     );
   }

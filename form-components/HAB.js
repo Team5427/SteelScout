@@ -3,12 +3,13 @@ import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
-
+import Trapezoid from './shapes/Trapezoid';
 class HAB extends Component {
   render() {
     return (
         <View style={styles.container}>
         <Text style={styles.welcome}>HAB</Text>
+        <Trapezoid/>
       </View>
     );
   }
