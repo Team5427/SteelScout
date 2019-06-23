@@ -3,7 +3,7 @@ import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, StatusBar,Tex
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
-import Triangle from './shapes/Triangle';
+import Counter from './shapes/Counter';
 import {Button} from 'react-native-elements';
 
 class Rocket extends Component {
@@ -25,125 +25,28 @@ class Rocket extends Component {
             <View style={{flex:1}}>
               <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Hatch</Text>
             </View>
-
           </View>
-
-
-
-
-
-
-
-
           <View style={{flexDirection:'row'}}>
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-
+          <Counter/>
           <View style={{flex:1,height:'10%'}}>
               <Text style={[styles.textBoxedSmall]}>Lvl 3</Text>
             </View>
-
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-                
+          <Counter/>    
            </View>
-
-
-
-
-
-
-
            <View style={{flexDirection:'row'}}>
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-
-          <View style={{flex:1,height:'10%'}}>
-              <Text style={[styles.textBoxedSmall]}>Lvl 2</Text>
+            <Counter/>
+            <View style={{flex:1,height:'10%'}}>
+                <Text style={[styles.textBoxedSmall]}>Lvl 2</Text>
             </View>
-
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
+            <Counter/>
           </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
+          <View style={{flexDirection:'row'}}>
+            <Counter/>
+              <View style={{flex:1,height:'10%'}}>
+                  <Text style={[styles.textBoxedSmall]}>Lvl 1</Text>
+                </View>
+            <Counter/>
           </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-                
-           </View>
-
-
-
-
-
-
-
-
-           <View style={{flexDirection:'row'}}>
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-
-          <View style={{flex:1,height:'10%'}}>
-              <Text style={[styles.textBoxedSmall]}>Lvl 1</Text>
-            </View>
-
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
-                
-           </View>
-
-
-
-
 
 
 

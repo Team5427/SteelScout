@@ -5,7 +5,7 @@ import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Square from './shapes/Square';
 import Rectangle from './shapes/Rectangle';
-import Ellipse from './shapes/Ellipse';
+import Counter from './shapes/Counter';
 import {Button} from 'react-native-elements';
 
 class Cargoship extends Component {
@@ -51,30 +51,12 @@ class Cargoship extends Component {
 
       <View style={{flexDirection:'row'}}>
 
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
+      <Counter/>
 
 
           
 
-
-          <View style={{flex:1}}>
-              <Button title='-'/>
-          </View>
-          <View style={{flex:1, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
-          </View>
-          <View style={{flex:1}}>
-              <Button title='+'/>
-          </View>
-
+        <Counter/>
                 
            </View>
 
