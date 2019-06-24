@@ -51,12 +51,12 @@ class Cargoship extends Component {
 
       <View style={{flexDirection:'row'}}>
 
-      <Counter/>
+      <Counter name = "CC"/>
 
 
           
 
-        <Counter/>
+        <Counter name = "CH"/>
                 
            </View>
 

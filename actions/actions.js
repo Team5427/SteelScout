@@ -14,3 +14,12 @@ export const authenticate = (username, password) => {
         }
     }
 }
+
+export const updateValue = (value) => {
+    return{
+        type: "UPDATE_VALUE",
+        payload: {
+            value: value,
+        }
+    }
+}

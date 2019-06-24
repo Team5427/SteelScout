@@ -18,8 +18,6 @@ class Rocket extends Component {
 
             <View style={{flex:1}}>
               <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Cargo</Text>
-
-              
             </View>
 
             <View style={{flex:1}}>
@@ -27,25 +25,25 @@ class Rocket extends Component {
             </View>
           </View>
           <View style={{flexDirection:'row'}}>
-          <Counter/>
+          <Counter name = "RC3"/>
           <View style={{flex:1,height:'10%'}}>
               <Text style={[styles.textBoxedSmall]}>Lvl 3</Text>
             </View>
-          <Counter/>    
+          <Counter name = "RH3"/>    
            </View>
            <View style={{flexDirection:'row'}}>
-            <Counter/>
+            <Counter name = "RC2"/>
             <View style={{flex:1,height:'10%'}}>
                 <Text style={[styles.textBoxedSmall]}>Lvl 2</Text>
             </View>
-            <Counter/>
+            <Counter name = "RH2"/>
           </View>
           <View style={{flexDirection:'row'}}>
-            <Counter/>
+            <Counter name = "RC1"/>
               <View style={{flex:1,height:'10%'}}>
                   <Text style={[styles.textBoxedSmall]}>Lvl 1</Text>
                 </View>
-            <Counter/>
+            <Counter name = "RH1"/>
           </View>
 
 

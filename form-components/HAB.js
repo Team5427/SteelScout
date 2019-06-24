@@ -3,7 +3,7 @@ import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, Picker,Status
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
-import Trapezoid from './shapes/Trapezoid';
+import Square from './shapes/Square';
 import {Button} from 'react-native-elements';
 
 class HAB extends Component {
@@ -16,7 +16,7 @@ class HAB extends Component {
         <Text style={styles.welcome}>HAB</Text>
         <Trapezoid/> 
         */}
-
+      <Square/>
       <View style={{flexDirection:'row'}}>
         <View style={{flex:1}}>
          <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Hab Climb</Text>
