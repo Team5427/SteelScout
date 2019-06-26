@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button,SafeAreaView,Dimensions,TouchableOpacity, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {changeCurPage} from '../actions/actions.js';
+import {changeCurPage,updateValue} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Square from './shapes/Square';
 import Rectangle from './shapes/Rectangle';
@@ -9,6 +9,11 @@ import Counter from './shapes/Counter';
 import Trapezoid from './shapes/Trapezoid';
 
 class Cargoship extends Component {
+  componentWillMount(){
+    this.props.updateValue("CC",0);
+    this.props.updateValue("CH",0);
+  }
+
   render() {
     return (
         
@@ -49,10 +54,10 @@ class Cargoship extends Component {
 
       <View style={{flexDirection:'row', marginTop:30}}>
         <View style={{flex:2, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
+          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder={""+this.props.scout.values["CC"]} />
         </View>
         <View style={{flex:2, height:'80%'}}>
-          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
+          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder={""+this.props.scout.values["CH"]} />
         </View>
       </View>
 
@@ -80,45 +85,24 @@ class Cargoship extends Component {
        <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
             <View flexDirection='row' style={{ }}>
               <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> + </Text></TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]+1)}}><View><Text> + </Text></View></TouchableOpacity>
               </View>
               <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> - </Text></TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]-1)}}><View><Text> - </Text></View></TouchableOpacity>
               </View>
-
-
-            
-          
             </View>
         }/>
        <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
             <View flexDirection='row' style={{ }}>
               <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> + </Text></TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]+1)}}><View><Text> + </Text></View></TouchableOpacity>
               </View>
               <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> - </Text></TouchableOpacity>
-              </View>
-
-
-            
-          
+                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]-1)}}><View><Text> - </Text></View></TouchableOpacity>
+              </View> 
             </View>
         }/>
-
-        
-
       </View>
-
-
-
-
-
-
-
-
-    
-
      </SafeAreaView>
     );
   }
@@ -190,11 +174,15 @@ const styles = StyleSheet.create({
         // username: state.auth.username,
         // password: state.auth.password,
         curPage: state.curPage,
+        scout: state.scout,
     }
   }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({changeCurPage: changeCurPage}, dispatch);
+    return bindActionCreators({
+      changeCurPage: changeCurPage,
+      updateValue,
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Cargoship);
