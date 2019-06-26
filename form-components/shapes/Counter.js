@@ -9,6 +9,7 @@ class Counter extends Component{
     render(){
         return(
             <View style={{flex:1, flexDirection:'row'}}>
+                
                 <View style={{flex:2}}>
                     <Button title='-'/>
                 </View>

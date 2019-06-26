@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { Button, colors, ThemeProvider } from 'react-native-elements';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 export default class Trapezoid extends Component{
@@ -9,15 +9,14 @@ export default class Trapezoid extends Component{
     render(){
         return(
             <View style={{   
-                width: 200,
+                width: this.props.w,
                 height: 0,
-                borderBottomWidth: this.props.h,
-                borderBottomColor: 'red',
-                borderLeftWidth: 50,
+                borderBottomWidth: this.props.bw,
+                borderBottomColor: '#2196F3',
+                borderLeftWidth: this.props.lw,
                 borderLeftColor: 'transparent',
-                borderRightWidth: 50,
+                borderRightWidth: this.props.rw,
                 borderRightColor: 'transparent',
-                borderStyle: 'solid'
                         }} >
                         {this.props.c}
                         </View>

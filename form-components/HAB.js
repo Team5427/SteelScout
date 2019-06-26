@@ -4,25 +4,23 @@ import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Trapezoid from './shapes/Trapezoid';
+import Rectangle from './shapes/Rectangle';
+import Ellipse from './shapes/Ellipse';
+
+
+
+import Square from './shapes/Square';
+
 import {Button} from 'react-native-elements';
 
 class HAB extends Component {
   render() {
     return (
       <SafeAreaView style={styles.safeArea}>
-        <StatusBar hidden = {true}/>
-        <Text style={styles.textBoxed}>HAB</Text>
-      {/*
-        <Text style={styles.welcome}>HAB</Text>
-        <Trapezoid/> 
-        */}
-
-      <View style={{flexDirection:'row'}}>
-        <View style={{flex:1}}>
-         <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Hab Climb</Text>
-
-         
-       </View>
+        <StatusBar hidden = {true}/> 
+        
+        
+        <View style={{flexDirection:'row'}}>
 
        <View style={{flex:1}}>
          <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Lvl 2 Descend</Text>
@@ -32,56 +30,42 @@ class HAB extends Component {
 
 
 
-      <View style={{flexDirection:'row'}}>
-
-          <View style={{flex:1}}>
-              <Button title='Level 3'/>
-          </View>
-
-          <View style={{flex:1}}>
-              <Button title='Yes'/>
-          </View>
-
-                
+      <View style={{marginBottom:50, width:'50%',borderRadius:5,  marginLeft: (Dimensions.get('screen').width/4)}} >
+        <Button title='Yes' />
+      </View>
+      <View style={{marginBottom:80, width:'50%',  marginLeft: (Dimensions.get('screen').width/4)}}>
+        <Button title='No' />
       </View>
 
-
-      <View style={{flexDirection:'row'}}>
-
-          <View style={{flex:1}}>
-              <Button title='Level 2'/>
-          </View>
-
-          <View style={{flex:1}}>
-              <Button title='No'/>
-          </View>
-
-                
-      </View>
-
-
-      <View style={{flexDirection:'row' ,width:'50%'}}>
-
-          <View style={{flex:1}}>
-              <Button title='Level 1'/>
-          </View>                
-      </View>
-
-      <View style={{flexDirection:'row', width:'50%'}}>
-
-          <View style={{flex:1}}>
-              <Button title='None'/>
-          </View>
-
-                
-      </View>
-
-
-
-
+        <Text style={styles.textBoxed}>Hab Climb</Text>
       
+        <View style={{alignItems:'center', flexDirection:'column'}}>
+        <Trapezoid  w={150} bw={40} lw={45} rw={45}   c = {
+            <Text style={{textAlign:'center', color:'white'}}>Lvl 3</Text>
+          }/>
+        
+        <Trapezoid  w={240} bw={40} lw={45} rw={45}   c = {
+            <Text style={{textAlign:'center', color:'white'}}>Lvl 2</Text>
+          }/>
+        
+        <Trapezoid  w={330} bw={40} lw={45} rw={45}   c = {
+            <Text style={{textAlign:'center', color:'white'}}>Lvl 1</Text>
+          }/>
 
-      
+          <Trapezoid  w={420} bw={40} lw={45} rw={45}   c = {
+            <Text style={{textAlign:'center', color:'white'}}>None</Text>
+          }/>
+
+            
+        </View>
+         
+        
+
+     
+
+
+
+  
 
 
 
@@ -101,10 +85,10 @@ const styles = StyleSheet.create({
   textBoxed: {
     fontSize: 40,
     fontWeight: 'bold',
-    borderWidth:1,
     borderColor:'#1974E5',
     color: "#99aab5",
     textAlign: 'center',
+    
   },
   textBoxedSmall: {
     fontSize: 27,
@@ -141,6 +125,7 @@ const styles = StyleSheet.create({
     borderColor: '#1974E5', 
     borderRadius: 10 ,
     backgroundColor : '#2c2f33',
+    
     
     
   },

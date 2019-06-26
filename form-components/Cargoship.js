@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,SafeAreaView,Dimensions,TouchableOpacity, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Square from './shapes/Square';
 import Rectangle from './shapes/Rectangle';
 import Counter from './shapes/Counter';
-import {Button} from 'react-native-elements';
+import Trapezoid from './shapes/Trapezoid';
 
 class Cargoship extends Component {
   render() {
@@ -30,13 +30,14 @@ class Cargoship extends Component {
         </View>
         </View>*/}
 
-      <View style={{flexDirection:'row'}}>
+      <View style={{flexDirection:'row', marginTop:30}}>
 
        <View style={{flex:1}}>
          <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Cargo</Text>
-
-         
        </View>
+
+       
+
 
        <View style={{flex:1}}>
          <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Hatch</Text>
@@ -46,19 +47,77 @@ class Cargoship extends Component {
 
 
 
+      <View style={{flexDirection:'row', marginTop:30}}>
+        <View style={{flex:2, height:'80%'}}>
+          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
+        </View>
+        <View style={{flex:2, height:'80%'}}>
+          <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="0" />
+        </View>
+      </View>
 
 
 
-      <View style={{flexDirection:'row'}}>
-
-      <Counter/>
 
 
+
+      
+
+
+
+
+      <View style={{ marginTop:30, alignItems:'center'}}>
+
+       <Trapezoid  w={Dimensions.get('screen').width} bw={60} lw={70} rw={70}   c = {
+            <Text style={{textAlign:'center', color:'white'}}>CargoShip</Text>
+        }/>
+
+      </View>
+
+
+      <View style={{ alignItems:'center', flexDirection:'row'}}>
+
+       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
+            <View flexDirection='row' style={{ }}>
+              <View style={{flex:2}}>
+                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> + </Text></TouchableOpacity>
+              </View>
+              <View style={{flex:2}}>
+                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> - </Text></TouchableOpacity>
+              </View>
+
+
+            
           
+            </View>
+        }/>
+       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
+            <View flexDirection='row' style={{ }}>
+              <View style={{flex:2}}>
+                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> + </Text></TouchableOpacity>
+              </View>
+              <View style={{flex:2}}>
+                <TouchableOpacity activeOpacity={1} style={styles.button} ><Text> - </Text></TouchableOpacity>
+              </View>
 
-        <Counter/>
-                
-           </View>
+
+            
+          
+            </View>
+        }/>
+
+        
+
+      </View>
+
+
+
+
+
+
+
+
+    
 
      </SafeAreaView>
     );
@@ -71,6 +130,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#23272a',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    padding: 10,
+    height:150,
   },
   textBoxed: {
     fontSize: 40,

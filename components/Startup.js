@@ -31,8 +31,10 @@ handleBlur = () => this.setState({ isFocused: false });
 
     const theme = {
       colors: {
-        primary: '#2c2f33',
-        color:'red'
+        
+        color:'red',
+        height:'50%',
+        width:'10%',
       
       }
     }
@@ -73,12 +75,15 @@ handleBlur = () => this.setState({ isFocused: false });
           <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder="          Password          " onChangeText={(password) => this.setState({password})}/>
         </View>
 
+
+        <ThemeProvider theme = {theme}>
       
+        
         <View style = {{width:'50%', marginTop:40, marginLeft: (Dimensions.get('screen').width/4)}}>           
             <Button title = "Log In" onPress = {() => {this.props.authenticate(this.state.username, this.state.password); this.props.changeCurPage("ScoutDashboard");} } /> 
         </View>
         
-     
+     </ThemeProvider>
       
       </SafeAreaView>
     );
