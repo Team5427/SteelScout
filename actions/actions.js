@@ -22,3 +22,17 @@ export const updateValue = (name, number=0) => {
         value: number
     }
 }
+
+export const updateClimb = (climb) => {
+    return{
+        type: "UPDATE_CLIMB",
+        climb: climb,
+    }
+}
+
+export const updateDescend = (descend) => {
+    return{
+        type: "UPDATE_DESCEND",
+        descend: descend,
+    }
+}

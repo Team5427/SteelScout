@@ -21,7 +21,6 @@ class Counter extends Component{
         //alert(name);
         //alert(this.props.scout.values["RC3"] ||this.props.scout.values.RC3)
         //var numb = this.props.scout.values[name]
-        //alert(type(this.props.scout.values.RC3));
         return(
             <View style={{flex:1, flexDirection:'row'}}>
                 <View style={{flex:2}}>
@@ -37,7 +36,7 @@ class Counter extends Component{
                     <Button title='+' onPress = {() => {
                         this.props.updateValue(name, this.state.value+1)
                         this.setState({value: this.state.value+1})
-                        alert(JSON.stringify(this.props.scout.values))
+                        //alert(JSON.stringify(this.props.scout.values))
                     }}/>
                 </View>
           </View>

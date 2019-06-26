@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, Picker,StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {changeCurPage} from '../actions/actions.js';
+import {changeCurPage, updateClimb, updateDescend} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Square from './shapes/Square';
 import {Button} from 'react-native-elements';
@@ -35,11 +35,11 @@ class HAB extends Component {
       <View style={{flexDirection:'row'}}>
 
           <View style={{flex:1}}>
-              <Button title='Level 3'/>
+              <Button title='Level 3' onPress = {() => {this.props.updateClimb("Level 3")}}/>
           </View>
 
           <View style={{flex:1}}>
-              <Button title='Yes'/>
+              <Button title='Yes' onPress = {() => {this.props.updateDescend("YES")}}/>
           </View>
 
                 
@@ -49,11 +49,11 @@ class HAB extends Component {
       <View style={{flexDirection:'row'}}>
 
           <View style={{flex:1}}>
-              <Button title='Level 2'/>
+              <Button title='Level 2'  onPress = {() => {this.props.updateClimb("Level 2")}}/>
           </View>
 
           <View style={{flex:1}}>
-              <Button title='No'/>
+              <Button title='No' onPress = {() => {this.props.updateDescend("NO")}}/>
           </View>
 
                 
@@ -63,28 +63,27 @@ class HAB extends Component {
       <View style={{flexDirection:'row' ,width:'50%'}}>
 
           <View style={{flex:1}}>
-              <Button title='Level 1'/>
-          </View>                
+              <Button title='Level 1' onPress = {() => {this.props.updateClimb("Level 1")}}/>
+          </View>           
       </View>
 
       <View style={{flexDirection:'row', width:'50%'}}>
 
           <View style={{flex:1}}>
-              <Button title='None'/>
+              <Button title='None' onPress = {() => {this.props.updateClimb("None")}}/>
           </View>
 
                 
       </View>
 
-
-
-
-      
-
-      
-
-
-
+      <View style={{flexDirection:'row'}}>
+          <View style={{flex:1}}>
+            <Text style={[styles.textBoxed, {justifyContent:'flex-start'}]}>{this.props.scout.climb?this.props.scout.climb:"?"}</Text>
+          </View>
+          <View style={{flex:1}}>
+              <Text style={[styles.textBoxed, {justifyContent:'flex-end'}]}>{this.props.scout.descend?this.props.scout.descend:"?" }</Text>
+          </View>           
+      </View>
 
       </SafeAreaView>
     );
@@ -151,11 +150,16 @@ const styles = StyleSheet.create({
         // username: state.auth.username,
         // password: state.auth.password,
         curPage: state.curPage,
+        scout: state.scout,
     }
   }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({changeCurPage: changeCurPage}, dispatch);
+    return bindActionCreators({
+      changeCurPage: changeCurPage,
+      updateClimb: updateClimb,
+      updateDescend: updateDescend,
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(HAB);
