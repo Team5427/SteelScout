@@ -5,24 +5,40 @@ import {bindActionCreators} from 'redux';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 
+
 class Counter extends Component{
     constructor(props){
         super(props)
         this.state = {
-            value: 0,
+            value:0,
         }
     }
+    componentWillMount(){
+        this.props.updateValue(this.props.name, 0);
+    }
     render(){
+        var name = this.props.name;
+        //alert(name);
+        //alert(this.props.scout.values["RC3"] ||this.props.scout.values.RC3)
+        //var numb = this.props.scout.values[name]
+        //alert(type(this.props.scout.values.RC3));
         return(
             <View style={{flex:1, flexDirection:'row'}}>
                 <View style={{flex:2}}>
-                    <Button title='-' onPress = {() => {this.setState({value: this.state.value-1,})}}/>
+                    <Button title='-' onPress = {() => {
+                        this.props.updateValue(name,this.state.value-1);
+                        this.setState({value: this.state.value-1})
+                        }}/>
                 </View>
                 <View style={{flex:2, height:'80%'}}>
                     <Text style = {styles.form}  underlineColorAndroid='transparent' >{this.state.value}</Text>
                 </View>
                 <View style={{flex:2}}>
-                    <Button title='+' onPress = {() => {this.setState({value: this.state.value+1,})}}/>
+                    <Button title='+' onPress = {() => {
+                        this.props.updateValue(name, this.state.value+1)
+                        this.setState({value: this.state.value+1})
+                        alert(JSON.stringify(this.props.scout.values))
+                    }}/>
                 </View>
           </View>
         );
@@ -41,8 +57,10 @@ const styles = StyleSheet.create({
   });
 
   function mapStateToProps(state){
+    //alert(JSON.stringify(state.scout));
     return{
       scout: state.scout,
+      curPage: state.curPage,
     }
   }
 

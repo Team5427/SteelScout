@@ -15,11 +15,10 @@ export const authenticate = (username, password) => {
     }
 }
 
-export const updateValue = (value) => {
+export const updateValue = (name, number=0) => {
     return{
         type: "UPDATE_VALUE",
-        payload: {
-            value: value,
-        }
+        name: name,
+        value: number
     }
 }
