@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableOpacity, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
 import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide, submitForm} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
@@ -12,23 +12,72 @@ class FieldInfo extends Component {
     return (
 
         <SafeAreaView style={styles.safeArea}>
-           <StatusBar hidden = {true}/>
+          <StatusBar hidden = {true}/>
           <Text style={styles.textBoxed}>General Info</Text>
 
-            <View>
-                <TextInput placeholder = "TEAM #" onChangeText={(team) => this.props.updateTeam(team)}/>
-            </View>
-            <View>
-                <TextInput placeholder = "ROUND #" onChangeText={(match) => this.props.updateMatch(match)}/>
-            </View>
+
+          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 40}}>
+            <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder = "TEAM #" onChangeText={(team) => this.props.updateTeam(team)}/>
+          </View>
+
+          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 15}}>
+            <TextInput style = {styles.form} placeholder = "ROUND #" onChangeText={(match) => this.props.updateMatch(match)}/>
+          </View>
           
-            <View style = {{flex: 1, flexDirection:"row", borderWidth:1, borderColor: this.props.scout.color?this.props.scout.color: "white",}}>
-                <Button title = "RED" style = {{color: this.props.scout.color}} onPress = {() => {this.props.updateColor("red")}}/>
-                <Button title = "BLUE" style = {{color: this.props.scout.color}} onPress = {() => {this.props.updateColor("blue")}}/>
+          <View style = {{ marginTop:20,marginBottom:20,flexDirection:"row", borderWidth:3, borderColor: this.props.scout.color?this.props.scout.color: "white"}}>
+            
+            <View style={{flex:2}}>
+              <TouchableOpacity activeOpacity={1} title = "RED" style = {[styles.button,{backgroundColor:'red'}]} onPress = {() => {this.props.updateColor("red")}}>
+                <Text style={{color:'black',fontSize:30}}> RED </Text>                  
+              </TouchableOpacity>
             </View>
 
-            <Button title = "SUBMIT FORM" onPress = {() => {this.props.submitForm(this.props.scout)}}/>
+            <View style={{flex:2}}>
+              <TouchableOpacity activeOpacity={1} title = "BLUE" style = {[styles.button,{backgroundColor:'#2196F3'}]} onPress = {() => {this.props.updateColor("#2196F3")}}>
+                <Text style={{color:'black',fontSize:30}}> BLUE </Text>
+              </TouchableOpacity>
+            </View>
+          
+          </View>
+
+          
+
+          <View style = {{flexDirection:"row", borderWidth:1, borderColor:this.props.scout.color?this.props.scout.color: "white", marginBottom:20}}>
+         
+            <View style={{flex:2}}>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Left'>
+                <Text style={{color:'black',fontSize:15}}> Left </Text>
+              </TouchableOpacity>
+            </View>  
+
+            <View style={{flex:2}}>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Center'>
+                <Text style={{color:'black',fontSize:15}}> Center </Text>
+              </TouchableOpacity>
+            </View>  
+
+            <View style={{flex:2}}>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Right'>
+              <Text style={{color:'black',fontSize:15}}> Right </Text>
+              </TouchableOpacity>
+            </View>  
+
+          </View>
+
+
+
+          <View style = {{width:'50%', marginLeft: (Dimensions.get('screen').width/4)}}>           
+            <Button title = "SUBMIT FORM" onPress = {() => {this.props.submitForm(this.props.scout)}} /> 
+          </View>
+
+
+
+          
+          <View  style={{justifyContent:'flex-end', flex:1}}>
             <Button title = "Log Out" onPress = {() => {this.props.changeCurPage("Startup")}}/>
+          </View>
+
+
         </SafeAreaView>
     );
   }
@@ -40,6 +89,14 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#23272a',
+    },
+    button: {
+      alignItems: 'center',
+      backgroundColor: '#2196F3',
+      padding: 10,
+      height:100,
+      justifyContent:'center',
+      borderWidth:.5,
     },
     textBoxed: {
       fontSize: 40,

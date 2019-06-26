@@ -36,25 +36,25 @@ class HAB extends Component {
         <Text style={styles.textBoxed}>Hab Climb</Text>
       
         <View style={{alignItems:'center', flexDirection:'column'}}>
-        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 3")}}>
+        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 3")}}>
           <Trapezoid  w={150} bw={40} lw={45} rw={45}  c = {
                 <Text style={{textAlign:'center', color:'white'}}>Lvl 3</Text>
             }/>
         </TouchableOpacity>
         
-        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 2")}}>
+        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 2")}}>
         <Trapezoid  w={240} bw={40} lw={45} rw={45}  c = {
               <Text style={{textAlign:'center', color:'white'}}>Lvl 2</Text>
           }/>
         </TouchableOpacity>
         
-        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 1")}}>
+        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 1")}}>
         <Trapezoid  w={330} bw={40} lw={45} rw={45} c = {
               <Text style={{textAlign:'center', color:'white'}}>Lvl 1</Text>
           }/>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress = {() => {this.props.updateClimb("None")}}>
+          <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("None")}}>
           <Trapezoid  w={420} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("None")}}  c = {
               <Text style={{textAlign:'center', color:'white'}}>None</Text>
           }/>

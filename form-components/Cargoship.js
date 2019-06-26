@@ -71,7 +71,7 @@ class Cargoship extends Component {
 
 
 
-      <View style={{ marginTop:30, alignItems:'center'}}>
+      <View style={{ marginTop:30, justifyContent:'center'}}>
 
        <Trapezoid  w={Dimensions.get('screen').width} bw={60} lw={70} rw={70}   c = {
             <Text style={{textAlign:'center', color:'white'}}>CargoShip</Text>
@@ -82,24 +82,45 @@ class Cargoship extends Component {
 
       <View style={{ alignItems:'center', flexDirection:'row'}}>
 
-       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
-            <View flexDirection='row' style={{ }}>
-              <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]+1)}}><View><Text> + </Text></View></TouchableOpacity>
+       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='black'     c = {
+            <View flexDirection='row' style={{borderTopWidth:.5 }}>
+              
+              <View style={{flex:2, borderRightWidth:.5, borderColor:'black'}}>
+                <TouchableOpacity activeOpacity={.8} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]-1)}}>
+                  <View>
+                    <Text style={{color:'black',fontSize:30}}> - </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-              <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]-1)}}><View><Text> - </Text></View></TouchableOpacity>
+
+              <View style={{flex:2, borderRightWidth:.5, borderColor:'black'}}>
+                <TouchableOpacity activeOpacity={.8} style={styles.button} onPress = {() => {this.props.updateValue("CC", this.props.scout.values["CC"]+1)}}>
+                  <View>
+                    <Text style={{color:'black',fontSize:30}}> + </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
+
             </View>
         }/>
-       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='red'     c = {
-            <View flexDirection='row' style={{ }}>
-              <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]+1)}}><View><Text> + </Text></View></TouchableOpacity>
+       <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='black'     c = {
+            <View flexDirection='row' style={{  borderTopWidth:.5}}>
+             
+              <View style={{flex:2, borderRightWidth:.5, borderColor:'black'}}>
+                <TouchableOpacity activeOpacity={.8} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]-1)}}>
+                  <View>
+                    <Text style={{color:'black',fontSize:30}}> - </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>  
+
+              <View style={{flex:2, borderRightWidth:.5, borderColor:'black'}}>
+                <TouchableOpacity activeOpacity={.8} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]+1)}}>
+                  <View>
+                    <Text style={{color:'black',fontSize:30}}> + </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-              <View style={{flex:2}}>
-                <TouchableOpacity activeOpacity={1} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]-1)}}><View><Text> - </Text></View></TouchableOpacity>
-              </View> 
             </View>
         }/>
       </View>
@@ -120,6 +141,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
     padding: 10,
     height:150,
+    borderColor:'#2196F3',
+    justifyContent:'center',
   },
   textBoxed: {
     fontSize: 40,
