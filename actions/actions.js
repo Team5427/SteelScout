@@ -36,3 +36,37 @@ export const updateDescend = (descend) => {
         descend: descend,
     }
 }
+
+export const clearScout = () => {
+    return{
+        type: "CLEAR_SCOUT",
+    }
+}
+
+export const updateTeam = (team) => {
+    return{
+        type: "UPDATE_TEAM",
+        team,
+    }
+}
+
+export const updateMatch = (match) => {
+    return{
+        type: "UPDATE_MATCH",
+        match,
+    }
+}
+
+export const updateColor = (color) => {
+    return{
+        type: "UPDATE_COLOR",
+        color,
+    }
+}
+
+export const updateSide = (side) => {
+    return{
+        type: "UPDATE_SIDE",
+        side,
+    }
+}

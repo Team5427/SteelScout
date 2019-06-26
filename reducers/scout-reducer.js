@@ -20,6 +20,28 @@ export default function(state = {}, action){
           ...state,
           descend: action.descend,
         }
+      case 'UPDATE_TEAM':
+        return {
+          ...state,
+          team: action.team,
+        }
+      case 'UPDATE_MATCH':
+        return {
+          ...state,
+          match: action.match,
+        }
+      case 'UPDATE_COLOR':
+        return {
+          ...state,
+         color: action.color,
+        }
+      case 'UPDATE_SIDE':
+        return {
+          ...state,
+          side: action.side,
+        }
+      case 'CLEAR_SCOUT':
+        return {}
       default:
         return state
     }
