@@ -70,3 +70,9 @@ export const updateSide = (side) => {
         side,
     }
 }
+
+export const submitForm = (scout) => {
+    return function(dispatch){
+        dispatch(clearScout());
+    }
+}

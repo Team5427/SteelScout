@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide} from '../actions/actions.js';
+import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide, submitForm} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Counter from './shapes/Counter';
 import {Button} from 'react-native-elements';
+
 
 class FieldInfo extends Component {
   render() {
@@ -26,7 +27,8 @@ class FieldInfo extends Component {
                 <Button title = "BLUE" style = {{color: this.props.scout.color}} onPress = {() => {this.props.updateColor("blue")}}/>
             </View>
 
-
+            <Button title = "SUBMIT FORM" onPress = {() => {this.props.submitForm(this.props.scout)}}/>
+            <Button title = "Log Out" onPress = {() => {this.props.changeCurPage("Startup")}}/>
         </SafeAreaView>
     );
   }
@@ -103,6 +105,7 @@ function matchDispatchToProps(dispatch){
       updateColor,
       updateMatch,
       updateTeam,
+      submitForm,
     }, dispatch);
 }
 
