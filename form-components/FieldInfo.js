@@ -1,53 +1,34 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {changeCurPage} from '../actions/actions.js';
+import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide, submitForm} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Counter from './shapes/Counter';
 import {Button} from 'react-native-elements';
 
-class Rocket extends Component {
+
+class FieldInfo extends Component {
   render() {
     return (
 
         <SafeAreaView style={styles.safeArea}>
            <StatusBar hidden = {true}/>
-          <Text style={styles.textBoxed}>Rocket</Text>
+          <Text style={styles.textBoxed}>General Info</Text>
 
-          <View style={{flexDirection:'row'}}>
-
-            <View style={{flex:1}}>
-              <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Cargo</Text>
+            <View>
+                <TextInput placeholder = "TEAM #" onChangeText={(team) => this.props.updateTeam(team)}/>
+            </View>
+            <View>
+                <TextInput placeholder = "ROUND #" onChangeText={(match) => this.props.updateMatch(match)}/>
+            </View>
+          
+            <View style = {{flex: 1, flexDirection:"row", borderWidth:1, borderColor: this.props.scout.color?this.props.scout.color: "white",}}>
+                <Button title = "RED" style = {{color: this.props.scout.color}} onPress = {() => {this.props.updateColor("red")}}/>
+                <Button title = "BLUE" style = {{color: this.props.scout.color}} onPress = {() => {this.props.updateColor("blue")}}/>
             </View>
 
-            <View style={{flex:1}}>
-              <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Hatch</Text>
-            </View>
-          </View>
-          <View style={{flexDirection:'row'}}>
-          <Counter name = "RC3"/>
-          <View style={{flex:1,height:'10%'}}>
-              <Text style={[styles.textBoxedSmall]}>Lvl 3</Text>
-            </View>
-          <Counter name = "RH3"/>    
-           </View>
-           <View style={{flexDirection:'row'}}>
-            <Counter name = "RC2"/>
-            <View style={{flex:1,height:'10%'}}>
-                <Text style={[styles.textBoxedSmall]}>Lvl 2</Text>
-            </View>
-            <Counter name = "RH2"/>
-          </View>
-          <View style={{flexDirection:'row'}}>
-            <Counter name = "RC1"/>
-              <View style={{flex:1,height:'10%'}}>
-                  <Text style={[styles.textBoxedSmall]}>Lvl 1</Text>
-                </View>
-            <Counter name = "RH1"/>
-          </View>
-
-
-
+            <Button title = "SUBMIT FORM" onPress = {() => {this.props.submitForm(this.props.scout)}}/>
+            <Button title = "Log Out" onPress = {() => {this.props.changeCurPage("Startup")}}/>
         </SafeAreaView>
     );
   }
@@ -113,11 +94,19 @@ const styles = StyleSheet.create({
         // username: state.auth.username,
         // password: state.auth.password,
         curPage: state.curPage,
+        scout: state.scout,
     }
   }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({changeCurPage: changeCurPage}, dispatch);
+    return bindActionCreators({
+      changeCurPage: changeCurPage,
+      updateSide,
+      updateColor,
+      updateMatch,
+      updateTeam,
+      submitForm,
+    }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Rocket);
+export default connect(mapStateToProps, matchDispatchToProps)(FieldInfo);
