@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import Square from './shapes/Square';
 import {Button} from 'react-native-elements';
 import Trapezoid from './shapes/Trapezoid';
+import { TouchableOpacity } from 'react-native';
 
 
 class HAB extends Component {
@@ -35,22 +36,29 @@ class HAB extends Component {
         <Text style={styles.textBoxed}>Hab Climb</Text>
       
         <View style={{alignItems:'center', flexDirection:'column'}}>
-        <Trapezoid  w={150} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("Level 3")}}  c = {
-            <Text style={{textAlign:'center', color:'white'}}>Lvl 3</Text>
-          }/>
+        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 3")}}>
+          <Trapezoid  w={150} bw={40} lw={45} rw={45}  c = {
+                <Text style={{textAlign:'center', color:'white'}}>Lvl 3</Text>
+            }/>
+        </TouchableOpacity>
         
-        <Trapezoid  w={240} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("Level 2")}}  c = {
-            <Text style={{textAlign:'center', color:'white'}}>Lvl 2</Text>
+        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 2")}}>
+        <Trapezoid  w={240} bw={40} lw={45} rw={45}  c = {
+              <Text style={{textAlign:'center', color:'white'}}>Lvl 2</Text>
           }/>
+        </TouchableOpacity>
         
-        <Trapezoid  w={330} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("Level 1")}}  c = {
-            <Text style={{textAlign:'center', color:'white'}}>Lvl 1</Text>
+        <TouchableOpacity onPress = {() => {this.props.updateClimb("Level 1")}}>
+        <Trapezoid  w={330} bw={40} lw={45} rw={45} c = {
+              <Text style={{textAlign:'center', color:'white'}}>Lvl 1</Text>
           }/>
+          </TouchableOpacity>
 
+          <TouchableOpacity onPress = {() => {this.props.updateClimb("None")}}>
           <Trapezoid  w={420} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("None")}}  c = {
-            <Text style={{textAlign:'center', color:'white'}}>None</Text>
+              <Text style={{textAlign:'center', color:'white'}}>None</Text>
           }/>
-
+         </TouchableOpacity>
             
         </View>
          
