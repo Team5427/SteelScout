@@ -99,6 +99,13 @@ const styles = StyleSheet.create({
     borderBottomWidth : 1,
     borderBottomColor : 'gray',
   },
+   container2: {
+    flex:0,
+    marginTop : 60,
+    width: Dimensions.get('screen').width, 
+    backgroundColor: '#2c2f33',
+    alignItems : 'center',
+  },
   container2: {
     flex:0,
     marginTop : 60,

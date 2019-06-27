@@ -17,7 +17,7 @@ class Cargoship extends Component {
   render() {
     return (
         
-    <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden = {true}/>
       <Text style={styles.textBoxed}>Cargo Ship</Text>
 
@@ -41,8 +41,6 @@ class Cargoship extends Component {
          <Text style={[styles.textBoxed,{justifyContent:'flex-start'}]}>Cargo</Text>
        </View>
 
-       
-
 
        <View style={{flex:1}}>
          <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Hatch</Text>
@@ -51,30 +49,23 @@ class Cargoship extends Component {
       </View>
 
 
-
       <View style={{flexDirection:'row', marginTop:30}}>
+
         <View style={{flex:2, height:'80%'}}>
           <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder={""+this.props.scout.values["CC"]} />
         </View>
+
         <View style={{flex:2, height:'80%'}}>
           <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder={""+this.props.scout.values["CH"]} />
         </View>
+
       </View>
-
-
-
-
-
-
-      
-
-
 
 
       <View style={{ marginTop:30, justifyContent:'center'}}>
 
-       <Trapezoid  w={Dimensions.get('screen').width} bw={60} lw={70} rw={70}   c = {
-            <Text style={{textAlign:'center', color:'white'}}>CargoShip</Text>
+        <Trapezoid  w={Dimensions.get('screen').width} bw={60} lw={70} rw={70}   c = {
+          <Text style={{textAlign:'center', color:'white'}}>CargoShip</Text>
         }/>
 
       </View>
@@ -105,7 +96,7 @@ class Cargoship extends Component {
         }/>
        <Rectangle  w={Dimensions.get('screen').width/2}  h={150}   color='black'     c = {
             <View flexDirection='row' style={{  borderTopWidth:.5}}>
-             
+              
               <View style={{flex:2, borderRightWidth:.5, borderColor:'black'}}>
                 <TouchableOpacity activeOpacity={.8} style={styles.button} onPress = {() => {this.props.updateValue("CH", this.props.scout.values["CH"]-1)}}>
                   <View>
@@ -121,9 +112,12 @@ class Cargoship extends Component {
                   </View>
                 </TouchableOpacity>
               </View>
+
             </View>
         }/>
+
       </View>
+      
      </SafeAreaView>
     );
   }

@@ -13,75 +13,70 @@ class HAB extends Component {
   render() {
     return (
       <SafeAreaView style={styles.safeArea}>
+
         <StatusBar hidden = {true}/> 
         
-        
+      
         <View style={{flexDirection:'row'}}>
-
-       <View style={{flex:1}}>
-         <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Lvl 2 Descend</Text>
-       </View>
-
-      </View>
+          <View style={{flex:1}}>
+            <Text style={[styles.textBoxed,{justifyContent:'flex-end'}]}>Lvl 2 Descend</Text>
+          </View>
+        </View>
 
 
+        <View style={{marginBottom:50, width:'50%',borderRadius:5,  marginLeft: (Dimensions.get('screen').width/4)}} >
+          <Button title='Yes' onPress = {() => {this.props.updateDescend("YES")}}/>
+        </View>
+      
 
-      <View style={{marginBottom:50, width:'50%',borderRadius:5,  marginLeft: (Dimensions.get('screen').width/4)}} >
-        <Button title='Yes' onPress = {() => {this.props.updateDescend("YES")}}/>
-      </View>
-      <View style={{marginBottom:80, width:'50%',  marginLeft: (Dimensions.get('screen').width/4)}}>
-        <Button title='No' onPress = {() => {this.props.updateDescend("NO")}}/>
-      </View>
+        <View style={{marginBottom:80, width:'50%',  marginLeft: (Dimensions.get('screen').width/4)}}>
+          <Button title='No' onPress = {() => {this.props.updateDescend("NO")}}/>
+        </View>
+
 
         <Text style={styles.textBoxed}>Hab Climb</Text>
       
+
         <View style={{alignItems:'center', flexDirection:'column'}}>
-        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 3")}}>
-          <Trapezoid  w={150} bw={40} lw={45} rw={45}  c = {
+
+          <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 3")}}>
+            <Trapezoid  w={150} bw={40} lw={45} rw={45}  c = {
                 <Text style={{textAlign:'center', color:'white'}}>Lvl 3</Text>
             }/>
-        </TouchableOpacity>
+          </TouchableOpacity>
         
-        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 2")}}>
-        <Trapezoid  w={240} bw={40} lw={45} rw={45}  c = {
+          <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 2")}}>
+            <Trapezoid  w={240} bw={40} lw={45} rw={45}  c = {
               <Text style={{textAlign:'center', color:'white'}}>Lvl 2</Text>
-          }/>
-        </TouchableOpacity>
+            }/>
+          </TouchableOpacity>
         
-        <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 1")}}>
-        <Trapezoid  w={330} bw={40} lw={45} rw={45} c = {
+          <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("Level 1")}}>
+            <Trapezoid  w={330} bw={40} lw={45} rw={45} c = {
               <Text style={{textAlign:'center', color:'white'}}>Lvl 1</Text>
-          }/>
+            }/>
           </TouchableOpacity>
 
           <TouchableOpacity activeOpacity={.8} onPress = {() => {this.props.updateClimb("None")}}>
-          <Trapezoid  w={420} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("None")}}  c = {
+            <Trapezoid  w={420} bw={40} lw={45} rw={45} onPress = {() => {this.props.updateClimb("None")}}  c = {
               <Text style={{textAlign:'center', color:'white'}}>None</Text>
-          }/>
-         </TouchableOpacity>
+            }/>
+          </TouchableOpacity>
             
         </View>
          
-        
 
-     
+        <View style={{flexDirection:'row'}}>
 
-
-
-  
-
-
-
-     
-
-      <View style={{flexDirection:'row'}}>
           <View style={{flex:1}}>
             <Text style={[styles.textBoxed, {justifyContent:'flex-start'}]}>{this.props.scout.climb?this.props.scout.climb:"?"}</Text>
           </View>
+
           <View style={{flex:1}}>
               <Text style={[styles.textBoxed, {justifyContent:'flex-end'}]}>{this.props.scout.descend?this.props.scout.descend:"?" }</Text>
-          </View>           
-      </View>
+          </View>     
+
+        </View>
 
       </SafeAreaView>
     );
