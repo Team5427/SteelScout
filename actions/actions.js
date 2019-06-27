@@ -6,12 +6,40 @@ export const changeCurPage = (page) => {
 }
 
 export const authenticate = (username, password) => {
+    return function(dispatch){
+        //authentication firebase
+
+        //if successful
+        dispatch(successfulAuth("visitor"));
+        dispatch(changeCurPage("ScoutDashboard"));
+
+
+    }
+}
+
+export const successfulAuth = (role) => {
     return {
-        type: "AUTHENTICATE",
-        payload: {
-            username: username,
-            password: password,
-        }
+        type: "AUTH_SUCCESS",
+        role,
+        authenticated: true,
+    }
+}
+
+export const logout = () => {
+    return function(dispatch){
+        //firebase stuff
+
+        //if successful
+        dispatch(logoutSuccess());
+        dispatch(changeCurPage("Startup"));
+    }
+}
+
+export const logoutSuccess = () =>{
+    return{
+        type: "LOGOUT_SUCCESS",
+        authenticated: false,
+        role: "",
     }
 }
 
@@ -37,9 +65,10 @@ export const updateDescend = (descend) => {
     }
 }
 
-export const clearScout = () => {
+export const clearScout = (scout) => {
     return{
         type: "CLEAR_SCOUT",
+
     }
 }
 
@@ -73,6 +102,7 @@ export const updateSide = (side) => {
 
 export const submitForm = (scout) => {
     return function(dispatch){
-        dispatch(clearScout());
+        //storing data firebase
+        dispatch(clearScout(scout));
     }
 }

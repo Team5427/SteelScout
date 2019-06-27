@@ -1,7 +1,15 @@
-export default function (state = null, action) {
+export default function (state = {authenticated: false}, action) {
     switch (action.type) {
-        case 'AUTHENTICATE':
-            return action.payload;
+        case 'AUTH_SUCCESS':
+            return {
+                role: action.role,
+                authenticated: action.authenticated,
+            };
+        case 'LOGOUT_SUCCESS':
+            return {
+                role: action.role,
+                authenticated: action.authenticated,
+            };
         default:
             return state;
     }
