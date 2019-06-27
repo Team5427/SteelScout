@@ -16,11 +16,11 @@ class FieldInfo extends Component {
           <Text style={styles.textBoxed}>General Info</Text>
 
 
-          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 40}}>
+          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 10}}>
             <TextInput style = {styles.form}  underlineColorAndroid='transparent'  placeholder = "TEAM #" onChangeText={(team) => this.props.updateTeam(team)}/>
           </View>
 
-          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 15}}>
+          <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 10}}>
             <TextInput style = {styles.form} placeholder = "ROUND #" onChangeText={(match) => this.props.updateMatch(match)}/>
           </View>
           
