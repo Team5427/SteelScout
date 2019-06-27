@@ -25,7 +25,15 @@ export const authenticate = (username, password) => {
             dispatch(changeCurPage("ScoutDashboard"));
         }).catch(function(error) {
             dispatch(changeCurPage("Startup"));
+            dispatch(authError(error));
         });
+    }
+}
+
+export const authError = (error) => {
+    return{
+        type: "AUTH_ERROR",
+        error: error,
     }
 }
 
@@ -42,6 +50,8 @@ export const logout = () => {
         firebase.auth().signOut().then(function() {
             dispatch(logoutSuccess());
             dispatch(changeCurPage("Startup"));
+        }).catch((error)=>{
+            dispatch(authError(error));
         });
     }
 }

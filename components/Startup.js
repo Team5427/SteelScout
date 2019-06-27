@@ -83,6 +83,8 @@ handleBlur = () => this.setState({ isFocused: false });
             <Button title = "Log In" onPress = {() => {
               this.props.authenticate(this.state.username, this.state.password);} } /> 
         </View>
+
+        <Text style = {{color: "red"}}>{JSON.stringify(this.props.auth.error)}</Text>
         
      </ThemeProvider>
       
