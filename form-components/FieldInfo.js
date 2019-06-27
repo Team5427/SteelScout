@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, SafeAreaView,Dimensions, StatusBar,TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide, submitForm} from '../actions/actions.js';
+import {changeCurPage, updateColor, updateTeam, updateMatch, updateSide, submitForm, logout} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
 import Counter from './shapes/Counter';
 import {Button} from 'react-native-elements';
@@ -75,7 +75,7 @@ class FieldInfo extends Component {
 
           
           <View  style={{justifyContent:'flex-end', flex:1}}>
-            <Button title = "Log Out" onPress = {() => {this.props.changeCurPage("Startup")}}/>
+            <Button title = "Log Out" onPress = {() => {this.props.logout()}}/>
           </View>
 
 
@@ -164,6 +164,7 @@ function matchDispatchToProps(dispatch){
       updateMatch,
       updateTeam,
       submitForm,
+      logout,
     }, dispatch);
 }
 

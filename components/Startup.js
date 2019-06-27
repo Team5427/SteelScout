@@ -80,7 +80,8 @@ handleBlur = () => this.setState({ isFocused: false });
       
         
         <View style = {{width:'50%', marginTop:40, marginLeft: (Dimensions.get('screen').width/4)}}>           
-            <Button title = "Log In" onPress = {() => {this.props.authenticate(this.state.username, this.state.password); this.props.changeCurPage("ScoutDashboard");} } /> 
+            <Button title = "Log In" onPress = {() => {
+              this.props.authenticate(this.state.username, this.state.password);} } /> 
         </View>
         
      </ThemeProvider>
