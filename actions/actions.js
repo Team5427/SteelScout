@@ -20,13 +20,16 @@ export const changeCurPage = (page) => {
 
 export const authenticate = (username, password) => {
     return function(dispatch) {
-        firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
-            dispatch(successfulAuth("visitor"));
-            dispatch(changeCurPage("ScoutDashboard"));
-        }).catch(function(error) {
-            dispatch(changeCurPage("Startup"));
-            dispatch(authError(error));
-        });
+        // firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
+        //     dispatch(successfulAuth("visitor"));
+        //     dispatch(changeCurPage("ScoutDashboard"));
+        // }).catch(function(error) {
+        //     dispatch(changeCurPage("Startup"));
+        //     dispatch(authError(error));
+        // });
+
+        dispatch(successfulAuth("visitor"));
+        dispatch(changeCurPage("ScoutDashboard"));
     }
 }
 
@@ -47,12 +50,14 @@ export const successfulAuth = (role) => {
 
 export const logout = () => {
     return function(dispatch) {
-        firebase.auth().signOut().then(function() {
-            dispatch(logoutSuccess());
-            dispatch(changeCurPage("Startup"));
-        }).catch((error)=>{
-            dispatch(authError(error));
-        });
+        // firebase.auth().signOut().then(function() {
+        //     dispatch(logoutSuccess());
+        //     dispatch(changeCurPage("Startup"));
+        // }).catch((error)=>{
+        //     dispatch(authError(error));
+        // });
+        dispatch(logoutSuccess());
+        dispatch(changeCurPage("Startup"));
     }
 }
 
@@ -122,22 +127,22 @@ export const updateSide = (side) => {
 
 export const submitForm = (scout) => {
     return function(dispatch) {
-        db.collection("teams").doc(scout.team).set({
-            team: scout.team,
-            match: scout.match,
-            color: scout.color,
-            side: scout.side,
+        // db.collection("teams").doc(scout.team).set({
+        //     team: scout.team,
+        //     match: scout.match,
+        //     color: scout.color,
+        //     side: scout.side,
 
-            rocketCargo1: scout.values.RC1,
-            rocketCargo2: scout.values.RC2,
-            rocketCargo3: scout.values.RC3,
-            rocketHatch1: scout.values.RH1,
-            rocketHatch2: scout.values.RH2,
-            rocketHatch3: scout.values.RH3,
+        //     rocketCargo1: scout.values.RC1,
+        //     rocketCargo2: scout.values.RC2,
+        //     rocketCargo3: scout.values.RC3,
+        //     rocketHatch1: scout.values.RH1,
+        //     rocketHatch2: scout.values.RH2,
+        //     rocketHatch3: scout.values.RH3,
 
-            level2Descend: scout.descend,
-            habClimb: scout.climb,
-        });
+        //     level2Descend: scout.descend,
+        //     habClimb: scout.climb,
+        // });
         dispatch(clearScout(scout));
     }
 }

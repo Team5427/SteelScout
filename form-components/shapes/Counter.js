@@ -11,9 +11,11 @@ class Counter extends Component{
             value:0,
         }
     }
+    componentWillMount(){
+        this.props.updateValue(this.props.name, 0);
+    }
     render(){
         var name = this.props.name;
-        this.props.updateValue(name, this.state.value);
         //alert(name);
         //alert(this.props.scout.values["RC3"] ||this.props.scout.values.RC3)
         //var numb = this.props.scout.values[name]

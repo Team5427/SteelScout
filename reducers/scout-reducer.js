@@ -43,8 +43,9 @@ export default function(state = {}, action){
       case 'CLEAR_SCOUT':
         return {
           values:{
+            ...state.values,
             CC: 0,
-            CH: 0,
+            CH: 0, 
           }
         }
       default:
