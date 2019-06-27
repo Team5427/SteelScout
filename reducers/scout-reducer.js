@@ -41,7 +41,12 @@ export default function(state = {}, action){
           side: action.side,
         }
       case 'CLEAR_SCOUT':
-        return {}
+        return {
+          values:{
+            CC: 0,
+            CH: 0,
+          }
+        }
       default:
         return state
     }

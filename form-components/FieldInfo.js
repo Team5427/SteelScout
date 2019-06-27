@@ -45,28 +45,29 @@ class FieldInfo extends Component {
           <View style = {{flexDirection:"row", borderWidth:1, borderColor:this.props.scout.color?this.props.scout.color: "white", marginBottom:20}}>
          
             <View style={{flex:2}}>
-              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Left'>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Left'  onPress = {() => {this.props.updateSide("Left")}}>
                 <Text style={{color:'black',fontSize:15}}> Left </Text>
               </TouchableOpacity>
             </View>  
 
             <View style={{flex:2}}>
-              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Center'>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Center' onPress = {() => {this.props.updateSide("Center")}}>
                 <Text style={{color:'black',fontSize:15}}> Center </Text>
               </TouchableOpacity>
             </View>  
 
             <View style={{flex:2}}>
-              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Right'>
+              <TouchableOpacity activeOpacity={.8} style = {styles.button} title='Right'  onPress = {() => {this.props.updateSide("Right")}}>
               <Text style={{color:'black',fontSize:15}}> Right </Text>
               </TouchableOpacity>
             </View>  
-
+            
           </View>
 
+          <Text style={styles.textBoxed}>{this.props.scout.side?this.props.scout.side:"?"}</Text>
 
 
-          <View style = {{width:'50%', marginLeft: (Dimensions.get('screen').width/4)}}>           
+          <View style = {{width:'50%', marginLeft: (Dimensions.get('screen').width/4), marginTop: 10}}>           
             <Button title = "SUBMIT FORM" onPress = {() => {this.props.submitForm(this.props.scout)}} /> 
           </View>
 

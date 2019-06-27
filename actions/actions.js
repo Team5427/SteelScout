@@ -37,9 +37,10 @@ export const updateDescend = (descend) => {
     }
 }
 
-export const clearScout = () => {
+export const clearScout = (scout) => {
     return{
         type: "CLEAR_SCOUT",
+
     }
 }
 
@@ -73,6 +74,6 @@ export const updateSide = (side) => {
 
 export const submitForm = (scout) => {
     return function(dispatch){
-        dispatch(clearScout());
+        dispatch(clearScout(scout));
     }
 }
