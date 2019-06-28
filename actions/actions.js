@@ -1,3 +1,4 @@
+import {AsyncStorage} from 'react-native';
 const firebase = require("firebase");
 require("firebase/firestore");
 
@@ -20,6 +21,7 @@ export const changeCurPage = (page) => {
 
 export const authenticate = (username, password) => {
     return function(dispatch) {
+        AsyncStorage.setItem("email", username);
         firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
             dispatch(successfulAuth("visitor"));
             dispatch(changeCurPage("ScoutDashboard"));
