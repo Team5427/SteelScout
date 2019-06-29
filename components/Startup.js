@@ -12,7 +12,18 @@ class Startup extends Component {
             username:"",
             password:"",
             isFocused:false,
+            loading:true,
         }
+    }
+
+    async componentDidMount() {
+        await this.init();
+        this.setState({loading: false});
+    }
+
+    async init() {
+        const email = await AsyncStorage.getItem("email");
+        this.setState({username: email});
     }
 
     handleFocus = () => this.setState({ isFocused: true });
@@ -44,7 +55,7 @@ class Startup extends Component {
         </View>
 
         <View style={{justifyContent: 'center', alignItems: 'center', marginTop:40}}>      
-            <TextInput style = {styles.form} placeholderTextColor='white' autoCapitalize='none' underlineColorAndroid='transparent' keyboardType='email-address' placeholder="Username" onChangeText={(username) => this.setState({username})}/>
+            <TextInput style = {styles.form} value={this.state.username} placeholderTextColor='white' autoCapitalize='none' underlineColorAndroid='transparent' keyboardType='email-address' placeholder="Username" onChangeText={(username) => this.setState({username})}/>
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center',marginTop: 30}}>
           <TextInput style = {styles.form} placeholderTextColor='white' secureTextEntry={true} autoCapitalize='none' underlineColorAndroid='transparent'  placeholder="Password" onChangeText={(password) => this.setState({password})}/>
