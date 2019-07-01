@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Login from './Login';
 import Startup from './Startup';
-import SignUp from './SignUp';
-import ForgotCredentials from './ForgotCredentials';
+import ScoutDashboard from'./ScoutDashboard';
 import { connect } from 'react-redux';
 import {changeCurPage} from '../actions/actions.js';
 import {bindActionCreators} from 'redux';
@@ -20,9 +18,7 @@ class CurrentPage extends Component {
   render() {
     return (
         this.props.curPage == "Startup"? <Startup/>:
-        this.props.curPage == "Login"? <Login/>:
-        this.props.curPage == "SignUp"?<SignUp/>:
-        this.props.curPage == "ForgotPass"?<ForgotCredentials/>:
+        this.props.curPage == "ScoutDashboard"?<ScoutDashboard/>:
         <Startup/>
     );
   }
